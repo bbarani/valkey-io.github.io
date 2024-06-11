@@ -176,9 +176,12 @@ function initSearch() {
         }
 
         for (var i = 0; i < Math.min(results.length, MAX_ITEMS); i++) {
-            var item = document.createElement("li");
-            item.innerHTML = formatSearchResultItem(results[i], term.split(" "));
-            $searchResultsItems.appendChild(item);
+            if(results[i].doc.title)
+            {
+                var item = document.createElement("li");
+                item.innerHTML = formatSearchResultItem(results[i], term.split(" "));
+                $searchResultsItems.appendChild(item);
+            }
         }
     }, 150));
 
